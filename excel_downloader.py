@@ -4,11 +4,13 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 import time
 import os
-from config import DOWNLOAD_DIR
+from config import DOWNLOAD_DIR, CHROMEDRIVER_PATH
 
 
 def download_excel() -> None:
     """Uses Selenium to download the Excel file from the diyanet website."""
+
+    print("Downloading Excel file...")
 
     # Set download folder
     os.makedirs(DOWNLOAD_DIR, exist_ok=True)
@@ -26,7 +28,7 @@ def download_excel() -> None:
     chrome_options.add_argument("--headless=new")
 
     # Path to chromedriver
-    service = Service("/usr/bin/chromedriver")
+    service = Service(CHROMEDRIVER_PATH)
     driver = webdriver.Chrome(service=service, options=chrome_options)
 
     # Open the website

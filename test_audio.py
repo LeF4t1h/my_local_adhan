@@ -10,5 +10,5 @@ player.play()
 time.sleep(1)
 while player.is_playing():
     time.sleep(0.1)
-print("Playback finished.")
 player.stop()
+print("Playback finished.")

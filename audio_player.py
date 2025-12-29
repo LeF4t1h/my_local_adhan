@@ -5,6 +5,7 @@ from config import AUDIO_FILE_PATH
 
 def play_adhan():
     """Plays the adhan mp3 file when now == prayer time"""
+    print("Starting playback...")
 
     player = vlc.MediaPlayer(AUDIO_FILE_PATH)
     player.play()
@@ -12,3 +13,6 @@ def play_adhan():
     while player.is_playing():
         time.sleep(0.1)
     player.stop()
+
+    print("Playback finished.")
+

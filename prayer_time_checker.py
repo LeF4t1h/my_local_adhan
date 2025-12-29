@@ -6,6 +6,7 @@ def check_prayer_time(prayer_times) -> bool:
     if not prayer_times:
         return False
 
+    # comment in/out the prayer times you want to hear
     times_to_check = [
         # prayer_times["Morgengebet"],
         prayer_times["Mittagsgebet"],
