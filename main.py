@@ -3,7 +3,7 @@ import time
 import os
 
 from audio_player import play_adhan
-from config import DOWNLOAD_DIR
+from config import DOWNLOAD_DIR, FILE_PATH
 from excel_downloader import download_excel
 from prayer_time_parser import parse_excel
 from prayer_time_checker import check_prayer_time
@@ -15,7 +15,7 @@ last_day = datetime.now().date()
 # --- Initial setup: ensure prayer_times available immediately ---
 # Download Excel if not present (or optionally always download)
 print("Downloading Excel file...")
-download_excel()
+download_excel() if not os.path.exists(FILE_PATH) else None
 prayer_times = parse_excel(last_day)
 print(f"Prayer times for {last_day}:")
 print(prayer_times)
