@@ -14,9 +14,11 @@ last_day = datetime.now().date()
 
 # --- Initial setup: ensure prayer_times available immediately ---
 # Download Excel if not present (or optionally always download)
+print("Downloading Excel file...")
 download_excel()
 prayer_times = parse_excel(last_day)
-
+print(f"Prayer times for {last_day}:")
+print(prayer_times)
 
 def main():
     global last_year, last_day, prayer_times
@@ -38,6 +40,7 @@ def main():
             print("All files deleted from", DOWNLOAD_DIR)
 
             # download new Excel file
+            print("Downloading Excel file...")
             download_excel()
             last_year = current_year
 
